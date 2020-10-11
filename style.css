@@ -1087,6 +1087,9 @@ background: #c4e9fff2;
     .card-stack{
         display:block;
     }
+    .card {
+        height:290px
+    }
     .showcase-content {
         margin-top: 45%;
     }
