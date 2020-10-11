@@ -1,10 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+@import url(https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Monoton&display=swap);
 
 :root {
 	--primary-color: #e50914;
 	--dark-color: #090225;
-	--light-color: #f4f4f4;
+    --light-color: #f4f4f4;
+    --cardW: 14em;
+	--cardH: 8em;
+	--cardZInc: 2em;
 }
 
 * {
@@ -115,6 +118,7 @@ img {
 
 .showcase-content p{
     text-transform: uppercase;
+    font-family: Comfortaa;
     color: #fff;
     font-weight: 400;
     font-size: 0.95rem;
@@ -210,7 +214,7 @@ img {
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-  border-radius:10px;
+    border-radius:10px;
     padding: 1rem;
     margin: 1rem;
     width: 210px;
@@ -219,10 +223,13 @@ img {
     background-color: whitesmoke;
     box-shadow: 0 1px 1px rgba(9,2,37, 0.1), 0 2px 2px rgba(9,2,37, 0.1), 0 4px 4px rgba(9,2,37, 0.1), 0 8px 8px rgba(9,2,37, 0.1), 0 16px 16px rgba(9,2,37, 0.1);
 }
-@media (min-width: 600px) {
+@media (max-width: 600px) {
     .card {
         height: 350px;
-   }
+    }
+    .hero-title {
+        font-size: 2.4rem;
+    }
 }
 .card:before {
     content: '';
@@ -283,6 +290,7 @@ img {
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1.2;
+    font-family: Comfortaa;
 }
 .copy {
     font-family: sans-serif;
@@ -344,7 +352,7 @@ img {
 }
 
   .shadow{
-    box-shadow: 3px 15px 50px #56d0fdbf;
+    box-shadow: 3px 3px 40px #56d0fdbf;
   }
 
   @media only screen and (max-width: 1900px) {
@@ -654,7 +662,7 @@ iframe {
 .btn-footer{
     position: relative;
     font-weight:normal;
-    padding: 0 0 0 0;
+    padding: 0;
     margin: 1.9rem; 
     border: 0.5px solid;
     width: 60vw;
@@ -896,4 +904,254 @@ background: #c4e9fff2;
   
   ::-webkit-scrollbar-thumb:hover {
     background: #090225;
+}
+
+.card-stack {
+    display:none;
+    width: 200px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 5.5rem;    
+
+}
+
+.buttons {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.46);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 0;
+    top: 55%;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 22px;
+    z-index: 100;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  .buttons:hover {
+    transform: scale(1.3, 1.3);
+  }
+  .prev {
+    left: 15px;
+    right: auto;
+  }
+  .next {
+    left: auto;
+    right: 15px;
+  }
+  .buttons:hover {
+    color: #C01313 ;
+    background: #fff;
+  }
+  .card-list {
+    width: 300px;
+  }
+  .card-list li {
+    transition: all 100ms ease-in-out;
+    border-radius: 2px;
+    position: absolute;
+    list-style: none;
+    height: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    background-size: cover;
+  }
+  .card-list li:nth-child(1) {
+    top: 24px;
+    width: 60%;
+    /* animation: scaleCard 100ms; */
+  
+  }
+  .card-list li:nth-child(2) {
+    top: 36px;
+    width: 70%;
+  }
+  .card-list li:nth-child(3) {
+    top: 48px;
+    width: 80%;
+  }
+  .card-list li:nth-child(4) {
+    top: 60px;
+    width: 90%;
+  }
+  .card-list li:nth-child(5) {
+    top: 72px;
+    width: 100%;
+  }
+  .card-stack:hover > .buttons.prev {
+    display: block;
+    animation: bounceInLeft 200ms;
+  }
+  .card-stack:hover > .buttons.next {
+    display: block;
+    animation: bounceInRight 200ms;
+  }
+  .transformThis {
+    animation: scaleDown 500ms;
+  }
+  .transformPrev {
+    animation: scaleUp 100ms;
+    display: none;
+  }
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1.2) translateY(50px);
+      opacity: 0;
+    }
+    20% {
+      transform: scale(1.15) translateY(40px);
+      opacity: 0.10;
+    }
+    40% {
+      transform: scale(1.1) translateY(30px);
+      opacity: 0.20;
+    }
+    60% {
+      transform: scale(1.05) translateY(20px);
+      opacity: 0.40;
+    }
+    80% {
+      transform: scale(1.01) translateY(10px);
+      opacity: 0.80;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scaleDown {
+    0% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(1.01) translateY(20px);
+      opacity: 0.80;
+    }
+    40% {
+      transform: scale(1.05) translateY(40px);
+      opacity: 0.40;
+    }
+    60% {
+      transform: scale(1.1) translateY(60px);
+      opacity: 0.20;
+    }
+    80% {
+      transform: scale(1.15) translateY(80px);
+      opacity: 0.10;
+    }
+    100% {
+      transform: scale(1.2) translateY(100px);
+      opacity: 0;
+    }
+  }
+  @keyframes scaleCard {
+    0% {
+      top: 5px;
+    }
+    100% {
+      top: 24px;
+    }
+  }
+  @keyframes bounceInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes bounceInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }  
+
+  @media only screen and (max-width: 385px) {
+    .card-stack{
+        display:block;
+    }
+    .showcase-content {
+        margin-top: 45%;
+    }
+    .showcase-content h1{
+        font-weight: 7;
+        font-size: 3.2rem;
+    }
+    .showcase-content p{
+        font-size: 1.05rem;
+        margin: 0;
+        width: 80vw;
+    }
+    .showcase {
+        height: 800px;
+    }
+    .content {
+        padding: 0;
+    }
+    .btn {
+        cursor: pointer;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.65rem;
+    }
+    .contentContainer {
+        display: none;
+    }
+    .trans3d {
+        display: none;
+    }
+    .hero-wrapper {
+        margin: 0;
+        right:-60px;
+        width: auto;
+        
+    }
+    .hero-block {
+        right:-60px;
+        padding: 0;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .card-mobile{
+    background-size: cover;
+    object-fit: cover;
+    }
+    .footer{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* max-width: 70%; */
+        margin:1rem  auto;
+        overflow: auto;
+    }
+    .grid-cards {
+        display: flex;
+        flex-flow:wrap;
+        flex-direction:row;
+        width:370px;
+    }
+
+    .btn-footer{
+        display: none;
+    }
 }
